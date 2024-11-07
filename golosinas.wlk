@@ -81,13 +81,11 @@ object golosinaBaniada {
  method gusto() = golosinaBase.gusto()
  method gluten()= golosinaBase.gluten()
 
+ 
  method mordisco(){ 
+   golosinaBase.mordisco()
   if(baniochocolate>0){
     baniochocolate-=2
-    golosinaBase.mordisco() + baniochocolate
-  }
-  else{
-    golosinaBase.mordisco()
   }
   }
   

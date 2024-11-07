@@ -110,20 +110,42 @@ describe "golosinas part1" {
     assert.equals("naranja", pastilla.gusto())
     }
 
-    test "Banio de chocolate" {
+    test "Banio de chocolate chupetin" {
         golosinaBaniada.golosinaBase(chupetin)
         assert.equals(11, golosinaBaniada.peso())
         assert.equals(4, golosinaBaniada.precio())
         assert.equals("naranja", golosinaBaniada.gusto())
         assert.that(golosinaBaniada.gluten())
-        //golosinaBaniada.mordisco()
-        //assert.equals(8.3, golosinaBaniada.peso())
+        golosinaBaniada.mordisco()
+        assert.equals(8.3, golosinaBaniada.peso())
+        golosinaBaniada.mordisco()
+        assert.equals(5.67, golosinaBaniada.peso())
+        }
+        
+        test "Banio Chocolate chocolatin" {
+        chocolatin.peso(100)
+        golosinaBaniada.golosinaBase(chocolatin)
+        assert.equals(104, golosinaBaniada.peso())
+        assert.equals(52,golosinaBaniada.precio())
+        assert.equals("chocolate", golosinaBaniada.gusto())
+        assert.notThat(golosinaBaniada.gluten())
+        golosinaBaniada.mordisco()
+        assert.equals(100, golosinaBaniada.peso())
+        golosinaBaniada.mordisco()
+        assert.equals(96, golosinaBaniada.peso())
+        }
 
-    }
+        test "Banio chocolate tutti"{
+          pastilla.glutenSON(0)
+          pastilla.esLibreono()
+          golosinaBaniada.golosinaBase(pastilla)
+          assert.equals(12, golosinaBaniada.precio())
+          assert.equals(9, golosinaBaniada.peso())
+        }
+ }
 
-    
-   
-}
+
+
 
 
 
