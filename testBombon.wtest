@@ -141,9 +141,42 @@ describe "golosinas part1" {
           golosinaBaniada.golosinaBase(pastilla)
           assert.equals(12, golosinaBaniada.precio())
           assert.equals(9, golosinaBaniada.peso())
+          assert.equals("frutilla", golosinaBaniada.gusto())
+          golosinaBaniada.mordisco()
+          assert.equals("chocolate", golosinaBaniada.gusto())
+          golosinaBaniada.mordisco()
+          assert.equals("naranja", golosinaBaniada.gusto())
         }
- }
 
+
+        test "mariano"{
+          chocolatin.peso(100)
+          mariano.comprar(chocolatin)
+          mariano.comprar(caramelo)
+          mariano.comprar(bombon)
+          assert.equals([chocolatin,caramelo,bombon], mariano.bolsa())
+          mariano.desechar(bombon)
+          assert.equals([chocolatin,caramelo], mariano.bolsa())
+          mariano.comprar(bombon)
+          mariano.probar()
+          assert.equals(98, chocolatin.peso())
+          assert.equals(4, caramelo.peso())
+          assert.equals(11, bombon.peso())
+          //assert.notThat(mariano.hayGolosinaSinTACC())
+          assert.notThat(mariano.precioCuidado())
+          assert.equals("chocolate", mariano.golosinaDeSabor())
+          assert.equals([caramelo, bombon], mariano.golosinasDeSabor("frutilla"))
+          assert.equals(#{"chocolate","frutilla"}, mariano.sabores())
+          assert.equals(chocolatin, mariano.golosinaMasCara())
+          assert.equals(113, mariano.pesoGolosinas())
+          juliana.golosinasDeseadas([alfajor, bombon, chocolatin, chupetin])
+          assert.equals([alfajor, chupetin], mariano.golosinasFaltantes())
+          juliana.saborDeseado(["melón", "chocolate", "frutilla" , "vainilla"])
+          //assert.equals(["melón", "vainilla"], mariano.saboresFaltantes())
+         }
+        
+         } 
+        
 
 
 

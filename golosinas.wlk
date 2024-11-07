@@ -136,11 +136,11 @@ object mariano {
       bolsa.forEach({golosina=> golosina.mordisco()})
           }
 
-    method hayGolosina(golosina) {
+    method hayGolosinaSinTACC() {
         bolsa.any({golosina => golosina.gluten()})
     } 
 
-    method precioCuidado() =  bolsa.all({golosina => golosina.precio()>10})
+    method precioCuidado() =  bolsa.all({golosina => golosina.precio()<10})
     
     method golosinaDeSabor()= bolsa.first().gusto()
 
@@ -155,14 +155,14 @@ object mariano {
     method pesoGolosinas()= bolsa.sum({golosina=>golosina.peso()})
     
       
-    method golosinasFaltantes() = juliana.golosinaDeseadas().filter({golosina=>!bolsa.contains(golosina)}) 
+    method golosinasFaltantes() = juliana.golosinasDeseadas().filter({golosina=>!bolsa.contains(golosina)}) 
       
-    method saboresFaltantes() = juliana.saborDeseado().filter({golosina=>!bolsa.contains(golosina)}) 
       
+    method saboresFaltantes(saborDeseado) = saborDeseado.filter({sabor=>!(bolsa.contains{golosina => golosina.gusto()==sabor})}) 
 }
    
 object juliana {
-   var property golosinaDeseadas = [bombon, alfajor] 
-   var property saborDeseado = ["chocolate", "frutilla"]
+   var property golosinasDeseadas = #{}
+   var property saborDeseado = #{}
  
 }
